@@ -35,7 +35,6 @@ function updateTotalPrice(){
 
     console.log("updating total price...");
     $(".line-total-value").each(function(){
-        console.log("price ->"+$(this).text());
         total += parseInt($(this).text());
     });
 
