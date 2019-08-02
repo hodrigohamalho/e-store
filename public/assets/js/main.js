@@ -19,6 +19,20 @@ $( document ).ready(function() {
 
         updateLineTotal($(this), newQty);
     });
+
+    $(".remove-product").click(function(){
+        $(this).closest("tr").remove();
+    });
+
+    $("#pay").click(function(){
+        // $.ajax({
+        //     url: '//platform.twitter.com/widgets.js',
+        //     dataType: 'application/json',
+        //     cache: true
+        //   }); //http://stackoverflow.com/q/6536108 
+
+        $("#confirm-modal").modal();
+    });
 });
 
 function updateLineTotal(line, qty){
@@ -33,11 +47,9 @@ function updateLineTotal(line, qty){
 function updateTotalPrice(){
     var total = 0;
 
-    console.log("updating total price...");
     $(".line-total-value").each(function(){
         total += parseInt($(this).text());
     });
 
-    console.log("new total: "+total);
     $("#total-price").html(total);
 }
