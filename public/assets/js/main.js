@@ -25,6 +25,17 @@ $( document ).ready(function() {
         updateLineTotal($(this), 0);
     });
 
+    $('.animated-value').each(function () {
+        var $this = $(this);
+        $({ Price: 0 }).animate({ Price: $this.text() }, {
+            duration: 1000,
+            easing: 'swing',
+            step: function () {
+                $this.text(Math.ceil(this.Price));
+            }
+        });
+    });
+
     $("#pay").click(function(){
         // $.ajax({
         //     url: '//platform.twitter.com/widgets.js',
@@ -33,8 +44,17 @@ $( document ).ready(function() {
         //   }); //http://stackoverflow.com/q/6536108 
 
         $("#confirm-modal").modal();
+        resetPurchase();
     });
 });
+
+function resetPurchase(){
+    $("#confirm-modal").on('hidden.bs.modal', function(){
+        $(".product-qty").html("0");
+        $(".line-total-value").html("0");
+        $("#total-price").html(0);
+    });
+}
 
 function updateLineTotal(line, qty){
     let singleProductValue = parseInt(line.closest("tr").find(".product-price").text());

@@ -1,7 +1,6 @@
 $( document ).ready(function() {
     
-    $('.animate-value').each(function () {
-        console.log("achei");
+    $('.animated-value').each(function () {
         var $this = $(this);
         $({ Price: 0 }).animate({ Price: $this.text() }, {
             duration: 2000,
