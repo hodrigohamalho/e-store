@@ -55,7 +55,7 @@ export class AppController {
           'vendor': 'Dolce & Gabbana', 
           'color': 'Red',
           'size': 'M',
-          'price': 549,
+          'price': 55,
           'image': './assets/img/product1.jpg'
       },
       {
@@ -63,15 +63,15 @@ export class AppController {
           'vendor': 'Pucci', 
           'color': 'Purple',
           'size': 'M',
-          'price': 549,
+          'price': 30,
           'image': './assets/img/product2.jpg'
       },
       {
           'name': 'Short Pants', 
           'vendor': 'Valentino', 
           'color': 'White',
-          'size': 'XL',
-          'price': 799,
+          'size': 'L',
+          'price': 50,
           'image': './assets/img/product3.jpg'
       }
     ];
