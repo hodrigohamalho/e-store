@@ -41,7 +41,9 @@ export class AppController {
       }
     ];
 
-    return {"transactions": transactions};
+    return {
+      "transactions": transactions,
+    }
   }
 
   @Get()
