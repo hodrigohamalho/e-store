@@ -12,16 +12,17 @@ $( document ).ready(function() {
     $(".remove-product").click(function(){
         let qty = parseInt($(this).closest('.td-number').find('span').text());
         let newQty = parseInt(qty)-1;
+        console.log("remove product qt" +qty);
         if (qty > 0){
             $(this).closest('.td-number').find('span').text(newQty);
             console.log("removing product qtd");
+            updateLineTotal($(this), newQty);
         }
-
-        updateLineTotal($(this), newQty);
     });
 
-    $(".remove-product").click(function(){
+    $(".remove-product-line").click(function(){
         $(this).closest("tr").remove();
+        updateLineTotal($(this), 0);
     });
 
     $("#pay").click(function(){

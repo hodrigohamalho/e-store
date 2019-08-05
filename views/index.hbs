@@ -18,24 +18,27 @@
   <link href="./assets/css/main.css" rel="stylesheet" />
 </head>
 
-<body class="shopping-cart sidebar-collapse">
-  <nav class="navbar navbar-color-on-scroll navbar-transparent    fixed-top  navbar-expand-lg " color-on-scroll="100" id="sectionsNav">
+<body class="shopping-cart">
+   <nav class="navbar navbar-color-on-scroll navbar-transparent    fixed-top  navbar-expand-lg " color-on-scroll="100" id="sectionsNav">
     <div class="container">
-      <div class="navbar-translate">
-        <a class="navbar-brand" href="#index.html"></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="navbar-toggler-icon"></span>
-          <span class="navbar-toggler-icon"></span>
-          <span class="navbar-toggler-icon"></span>
-        </button>
-      </div>
       <div class="collapse navbar-collapse">
         <ul class="navbar-nav ml-auto">
           <li class="button-container nav-item ">
-            <a href="#buy" target="_blank" class="btn  btn-rose   btn-round btn-block">
-              <i class="material-icons">shopping_cart</i> Buy Now
+            <a href="/finance" target="_blank" class="btn  btn-rose   btn-round btn-block">
+              <i class="material-icons">attach_money</i> Finance App
             </a>
+          </li>
+          <li class="dropdown nav-item">
+            <a href="#" class="profile-photo dropdown-toggle nav-link" data-toggle="dropdown">
+              <div class="profile-photo-small">
+                <img src="./assets/img/avatar.jpg" alt="Circle Image" class="rounded-circle img-fluid">
+              </div>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right">
+              <h6 class="dropdown-header">Profile</h6>
+              <a href="#" class="dropdown-item">My information</a>
+              <a href="#" class="dropdown-item">Sign out</a>
+            </div>
           </li>
         </ul>
       </div>
@@ -103,7 +106,7 @@
                     <small>&euro;</small><span class="line-total-value">0</span>
                   </td>
                   <td class="td-actions">
-                    <button type="button" rel="tooltip" data-placement="left" title="Remove item" class="btn btn-link remove-product">
+                    <button type="button" rel="tooltip" data-placement="left" title="Remove item" class="btn btn-link remove-product-line">
                       <i class="material-icons">close</i>
                     </button>
                   </td>
@@ -147,7 +150,7 @@
               <div class="social-line">
                 <div id="visual-card-number">1213 1213 213 2123</div>
                 <div>
-                  <span class="visual-card-date">03/2022</span>
+                  <span class="visual-card-date datepicker">03/2022</span>
                   <span class="visual-card-code">123</span>
                 </div>
               </div>
@@ -242,6 +245,8 @@
   <script src="./assets/js/core/popper.min.js" type="text/javascript"></script>
   <script src="./assets/js/core/bootstrap-material-design.min.js" type="text/javascript"></script>
   <script src="./assets/js/plugins/moment.min.js"></script>
+  <!--	Plugin for the Datepicker, full documentation here: https://github.com/Eonasdan/bootstrap-datetimepicker -->
+  <script src="./assets/js/plugins/bootstrap-datetimepicker.js" type="text/javascript"></script>
   <!--	Plugin for Tags, full documentation here: https://github.com/bootstrap-tagsinput/bootstrap-tagsinputs  -->
   <script src="./assets/js/plugins/bootstrap-tagsinput.js"></script>
   <!--	Plugin for Select, full documentation here: http://silviomoreto.github.io/bootstrap-select -->
