@@ -12,7 +12,7 @@ async function bootstrap() {
   app.setBaseViewsDir(join(__dirname, '..', 'views'));
   app.setViewEngine('hbs');
 
-  var port = process.env.SERVER_PORT || 8080;
+  var port = process.env.SERVER_PORT || 4200;
 
   await app.listen(port);
 }

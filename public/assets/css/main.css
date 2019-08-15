@@ -9,3 +9,17 @@
 .profile-photo-small {
     margin-left: 30px;
 }
+
+.disabled {
+    pointer-events: none;
+}
+
+.credit-card {
+    cursor: pointer;
+}
+
+.card-plain .card-header:not(.card-avatar) {
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 10px;
+}

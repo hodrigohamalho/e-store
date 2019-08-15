@@ -1,4 +1,20 @@
 $( document ).ready(function() {
+
+    $.fn.serializeObject = function() {
+        var o = {};
+        var a = this.serializeArray();
+        $.each(a, function() {
+            if (o[this.name]) {
+                if (!o[this.name].push) {
+                    o[this.name] = [o[this.name]];
+                }
+                o[this.name].push(this.value || '');
+            } else {
+                o[this.name] = this.value || '';
+            }
+        });
+        return o;
+    };
     
     $(".add-product").click(function(){
         let qty = parseInt($(this).closest('.td-number').find('span').text());
@@ -36,13 +52,30 @@ $( document ).ready(function() {
         });
     });
 
-    $("#pay").click(function(){
-        // $.ajax({
-        //     url: '//platform.twitter.com/widgets.js',
-        //     dataType: 'application/json',
-        //     cache: true
-        //   }); //http://stackoverflow.com/q/6536108 
+    $(".credit-card").click(function(){
+        var $form = $("#pay-form");
+        var data = {};
+        
+        data["card_name"] = $(this).find(".card-name").html();
+        data["card_number"] = $(this).find(".card-number").html();
+        data["card_date"] = $(this).find(".card-date").html();
+        data["card_security_code"] = $(this).find(".card-security-code").html();
+        data["total"] = $("#total-price").html();
+        data["currency"] = 'EUR';
+        data["userId"] = '1234';
 
+        console.log(data);
+
+        $.ajax({
+            url: 'http://localhost:4000/pay/1234',
+            method: 'POST',
+            contentType: 'application/json;charset=UTF-8',
+            data: JSON.stringify(data)
+        }).done(function(x){
+            console.log(x);
+        }); 
+
+        $("#pay-modal").modal("hide");
         $("#confirm-modal").modal();
         resetPurchase();
     });
@@ -52,7 +85,7 @@ function resetPurchase(){
     $("#confirm-modal").on('hidden.bs.modal', function(){
         $(".product-qty").html("0");
         $(".line-total-value").html("0");
-        $("#total-price").html(0);
+        changeTotalPrice(0);
     });
 }
 
@@ -72,5 +105,26 @@ function updateTotalPrice(){
         total += parseInt($(this).text());
     });
 
-    $("#total-price").html(total);
+    changeTotalPrice(total);
+}
+
+function changeTotalPrice(value){
+    if (value == 0){
+        $("#complete-purchase").addClass("disabled");
+    }else{
+        $("#complete-purchase").removeClass("disabled");
+    }
+
+    $("#total-price").html(value);
+}
+
+function formData($form){
+    var unindexed_array = $form.serializeArray();
+    var indexed_array = {};
+
+    $.map(unindexed_array, function(n, i){
+        indexed_array["'"+n['name']+"'"] = n['value'];
+    });
+
+    return indexed_array;
 }
