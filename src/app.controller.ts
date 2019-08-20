@@ -10,31 +10,31 @@ export class AppController {
   finance(): any {
     let transactions:Array<any> = [
       {
-        'date': '05-10-2019 11:10',
+        'date': '08-20-2019 11:10',
         'name': 'Moleskine Agenda',
         'source': 'Summit Bank',
         'price': 10
       },
       {
-        'date': '05-10-2019 11:10',
+        'date': '08-20-2019 11:11',
         'name': 'Estabilo Pen',
         'price': 300,
         'source': 'RHTE Bank'
       },
       {
-        'date': '05-10-2019 11:10',
+        'date': '08-20-2019 11:11',
         'name': 'A4 Paper Pack',
         'price': 109,
         'source': 'Summit Bank',
       },
       {
-        'date': '05-10-2019 11:10',
+        'date': '08-20-2019 11:12',
         'name': 'Apple iPad',
         'price': 109,
         'source': 'RHTE Bank',
       },
       {
-        'date': '05-10-2019 11:10',
+        'date': '08-20-2019 11:14',
         'name': 'Apple iPhone',
         'price': 109,
         'source': 'RHTE Bank',
@@ -43,6 +43,7 @@ export class AppController {
 
     return {
       "transactions": transactions,
+      "gateway-url": process.env.GATEWAY_URL || 'http://localhost:4000'
     }
   }
 
@@ -76,7 +77,10 @@ export class AppController {
       }
     ];
 
-    return {"products": products};
+    return {
+      "products": products,
+      "gateway-url": process.env.GATEWAY_URL || 'http://localhost:4000'
+    };
   }
   
 }

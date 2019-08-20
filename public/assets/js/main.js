@@ -65,9 +65,10 @@ $( document ).ready(function() {
         data["userId"] = '1234';
 
         console.log(data);
+        let gatewayUrl = $("#gateway-url").html();
 
         $.ajax({
-            url: 'http://localhost:4000/pay/1234',
+            url: gatewayUrl+'/pay',
             method: 'POST',
             contentType: 'application/json;charset=UTF-8',
             data: JSON.stringify(data)

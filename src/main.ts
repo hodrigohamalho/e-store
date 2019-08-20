@@ -13,7 +13,9 @@ async function bootstrap() {
   app.setViewEngine('hbs');
 
   let port = process.env.SERVER_PORT || 4200;
-
+  console.log('RUNNING AT PORT: '+port);
   await app.listen(port);
+  
 }
+
 bootstrap();
